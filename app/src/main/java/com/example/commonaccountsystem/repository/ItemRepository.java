@@ -18,7 +18,7 @@ public class ItemRepository {
     private ItemDAO dao;
     private List<Item> items;
     private LocalDate now;
-    private final List<String> TARGET_ITEM_NAMES_FOR_TOTAL_AMOUNT = Arrays.asList("食費", "日用品代");
+    private final List<String> TARGET_ITEM_NAMES_FOR_TOTAL_AMOUNT = Arrays.asList("食費", "日用品代", "旅費");
 
     private ItemRepository(Context context){
         AppDatabase db = AppDatabase.getInstance(context);
@@ -81,6 +81,9 @@ public class ItemRepository {
 
     public List<Item> fetchTargetItemsForTotalAmount(){
         fetchAll();
-        return items.stream().filter(i -> TARGET_ITEM_NAMES_FOR_TOTAL_AMOUNT.contains(i.name)).collect(Collectors.toList());
+        return items.stream()
+                .filter(i -> TARGET_ITEM_NAMES_FOR_TOTAL_AMOUNT.contains(i.name))
+                .sorted((i1,i2) -> Integer.compare(i1.displayOrder, i2.displayOrder))
+                .collect(Collectors.toList());
     }
 }

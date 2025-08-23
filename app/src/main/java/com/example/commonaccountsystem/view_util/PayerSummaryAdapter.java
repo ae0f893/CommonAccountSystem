@@ -32,8 +32,8 @@ public class PayerSummaryAdapter extends RecyclerView.Adapter<PayerSummaryViewHo
         int difference = payerSummary.getDifference();
 
         holder.payerName.setText(name);
-        holder.amount.setText((String) String.valueOf(amount));
-        holder.difference.setText((String) String.valueOf(difference));
+        holder.amount.setText(String.format("%,d", amount));
+        holder.difference.setText(String.format("%,d", difference));
     }
 
     @Override
