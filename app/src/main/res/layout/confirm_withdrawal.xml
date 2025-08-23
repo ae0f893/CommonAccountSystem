@@ -87,7 +87,7 @@
         <LinearLayout
             android:id="@+id/payer_summary"
             android:layout_width="match_parent"
-            android:layout_height="55dp" >
+            android:layout_height="60dp" >
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/payer_summary_recycler_view"
