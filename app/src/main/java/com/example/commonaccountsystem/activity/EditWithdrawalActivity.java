@@ -32,7 +32,7 @@ public class EditWithdrawalActivity extends AppCompatActivity {
 
         itemName.setText(withdrawal.itemName);
         payerName.setText(withdrawal.payerName);
-        price.setText((String) String.valueOf(withdrawal.withdrawal.price));
+        price.setText(String.format("%,d", withdrawal.withdrawal.price));
         String[] dateParts = withdrawal.withdrawal.liquidationDate.split("-");
         String liquidationMonthDay = dateParts[1] + "/" + dateParts[2];
         liquidationDate.setText(liquidationMonthDay);

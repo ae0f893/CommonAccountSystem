@@ -40,7 +40,8 @@ public class WithdrawalAdapter extends RecyclerView.Adapter<WithdrawalAdapter.Wi
 
         holder.itemName.setText(itemName);
         holder.payerName.setText(payerName);
-        holder.price.setText((String) String.valueOf(price));
+//        holder.price.setText((String) String.valueOf(price));
+        holder.price.setText(String.format("%,d", price));
         holder.liquidationDate.setText(liquidationMonthDay);
         holder.comment.setText(comment);
     }

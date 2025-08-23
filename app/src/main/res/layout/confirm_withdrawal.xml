@@ -137,7 +137,7 @@
         <LinearLayout
             android:id="@+id/item_summary"
             android:layout_width="match_parent"
-            android:layout_height="80dp" >
+            android:layout_height="60dp" >
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/item_summary_recycler_view"

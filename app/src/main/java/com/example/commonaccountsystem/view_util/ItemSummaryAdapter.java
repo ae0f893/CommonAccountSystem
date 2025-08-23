@@ -29,9 +29,8 @@ public class ItemSummaryAdapter extends RecyclerView.Adapter<ItemSummaryViewHold
         ItemSummary itemSummary = this.itemSummaries.get(position);
         String name = itemSummary.getItemName();
         int amount = itemSummary.getAmount();
-
         holder.itemName.setText(name);
-        holder.amount.setText((String) String.valueOf(amount));
+        holder.amount.setText(String.format("%,d", amount));
     }
 
     @Override
