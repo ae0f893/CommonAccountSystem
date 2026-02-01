@@ -14,6 +14,8 @@ https://developer.android.com/studio/run/device?hl=ja
 ***トラブルシューティング***  
 PCのネットワークプロファイルがパブリックではなく、プライベートになっていることを確認。
 
+コマンドで接続する場合は以下  
+https://laplace-daemon.com/android-device-not-detected-in-android-studio/
 
 #### ファイル
 ・DB
