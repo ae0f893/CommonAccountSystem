@@ -109,7 +109,9 @@
                 android:textSize="15sp"
                 android:gravity="right|center_vertical"
                 android:paddingRight="10dp"
-                android:background="@drawable/grid_border" />
+                android:background="@drawable/grid_border"
+                android:paddingTop="1.5dp"
+                android:paddingBottom="0.5dp" />
 
             <TextView
                 android:id="@+id/withdrawal_liquidation_date"
@@ -118,7 +120,9 @@
                 android:layout_weight="1"
                 android:textSize="15sp"
                 android:gravity="center"
-                android:background="@drawable/grid_border" />
+                android:background="@drawable/grid_border"
+                android:paddingTop="1.5dp"
+                android:paddingBottom="0.5dp" />
 
             <TextView
                 android:id="@+id/withdrawal_comment"
