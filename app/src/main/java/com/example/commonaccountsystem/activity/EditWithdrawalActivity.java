@@ -37,6 +37,14 @@ public class EditWithdrawalActivity extends AppCompatActivity {
         String liquidationMonthDay = dateParts[1] + "/" + dateParts[2];
         liquidationDate.setText(liquidationMonthDay);
         comment.setText(withdrawal.withdrawal.comment);
+
+        // Google Pixel 9a対応
+        if(withdrawal.withdrawal.comment == ""){
+            float density = getResources().getDisplayMetrics().density;
+            int paddingTopPx = Math.round(1.5f * density);
+            int paddingBottomPx = Math.round(0.5f * density);
+            comment.setPadding(0, paddingTopPx, 0, paddingBottomPx);
+        }
     }
 
     public void onClickDeleteButton(View view){
