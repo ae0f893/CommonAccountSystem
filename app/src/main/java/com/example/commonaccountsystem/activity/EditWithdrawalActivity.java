@@ -1,12 +1,9 @@
 package com.example.commonaccountsystem.activity;
 
-import static android.webkit.ConsoleMessage.MessageLevel.LOG;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -39,7 +36,7 @@ public class EditWithdrawalActivity extends AppCompatActivity {
         comment.setText(withdrawal.withdrawal.comment);
 
         // Google Pixel 9a対応
-        if(withdrawal.withdrawal.comment == ""){
+        if(withdrawal.withdrawal.comment.equals("")){
             float density = getResources().getDisplayMetrics().density;
             int paddingTopPx = Math.round(1.5f * density);
             int paddingBottomPx = Math.round(0.5f * density);
