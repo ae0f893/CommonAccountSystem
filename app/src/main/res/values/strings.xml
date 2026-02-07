@@ -29,10 +29,15 @@
 
     <string name="edit_withdrawal_title">出金編集</string>
     <string name="delete">削除</string>
+    <string name="update">更新</string>
 
     <string name="delete_withdrawal_title">出金削除</string>>
     <string name="delete_success">削除完了</string>
     <string name="delete_failure">削除失敗</string>
+    <string name="update_withdrawal_title">出金更新</string>>
+    <string name="update_success">更新完了</string>
+    <string name="update_failure">更新失敗</string>
     <string name="return_confirm_button">確認画面\nに戻る</string>
+
 
 </resources>
