@@ -4,6 +4,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.example.commonaccountsystem.entity.Withdrawal;
 import com.example.commonaccountsystem.entity.WithdrawalWithItemAndPayer;
@@ -28,5 +29,8 @@ public interface WithdrawalDAO {
 
     @Delete
     public void delete(Withdrawal withdrawal);
+
+    @Update
+    public void update(Withdrawal... withdrawals);
 
 }

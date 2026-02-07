@@ -5,10 +5,9 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/delete_result_title"
+        android:id="@+id/edit_result_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/delete_withdrawal_title"
         android:textSize="60sp"
         android:textStyle="bold"
         android:layout_marginTop="60dp"
@@ -18,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/delete_result"
+        android:id="@+id/edit_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="45sp"

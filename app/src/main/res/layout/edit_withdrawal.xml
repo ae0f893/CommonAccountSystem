@@ -21,12 +21,12 @@
         android:paddingRight="20dp"
         android:layout_below="@id/edit_withdrawal_title"
         android:layout_marginTop="70dp"
-        android:orientation="vertical" >
-        
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-    
+            android:layout_height="wrap_content">
+
             <TextView
                 android:id="@+id/withdrawal_item_title"
                 android:layout_width="0dp"
@@ -81,7 +81,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/withdrawal_item"
@@ -90,7 +90,8 @@
                 android:layout_weight="1"
                 android:textSize="15sp"
                 android:gravity="center"
-                android:background="@drawable/grid_border" />
+                android:background="@drawable/grid_border"
+                android:onClick="onClickItem" />
 
             <TextView
                 android:id="@+id/withdrawal_payer"
@@ -99,7 +100,8 @@
                 android:layout_weight="1"
                 android:textSize="15sp"
                 android:gravity="center"
-                android:background="@drawable/grid_border" />
+                android:background="@drawable/grid_border"
+                android:onClick="onClickPayer" />
 
             <TextView
                 android:id="@+id/withdrawal_price"
@@ -110,6 +112,7 @@
                 android:gravity="right|center_vertical"
                 android:paddingRight="10dp"
                 android:background="@drawable/grid_border"
+                android:onClick="onClickPrice"
                 android:paddingTop="1.5dp"
                 android:paddingBottom="0.5dp" />
 
@@ -118,11 +121,12 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:gravity="center"
                 android:background="@drawable/grid_border"
-                android:paddingTop="1.5dp"
-                android:paddingBottom="0.5dp" />
+                android:onClick="onClickLiquidationDate"
+                android:paddingTop="3.75dp"
+                android:paddingBottom="0.75dp" />
 
             <TextView
                 android:id="@+id/withdrawal_comment"
@@ -133,8 +137,9 @@
                 android:gravity="center"
                 android:maxLines="1"
                 android:ellipsize="end"
-                android:background="@drawable/grid_border" />
-    
+                android:background="@drawable/grid_border"
+                android:onClick="onClickComment" />
+
         </LinearLayout>
     </LinearLayout>
 
@@ -147,6 +152,21 @@
         android:onClick="onClickDeleteButton"
         android:layout_below="@id/target_withdrawal"
         android:layout_marginTop="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="75dp"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/update_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/update"
+        android:textSize="24sp"
+        android:onClick="onClickUpdateButton"
+        android:layout_below="@id/target_withdrawal"
+        android:layout_marginTop="150dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="75dp"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
