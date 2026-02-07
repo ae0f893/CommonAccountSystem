@@ -21,12 +21,11 @@ import com.example.commonaccountsystem.repository.ItemRepository;
 import com.example.commonaccountsystem.repository.PayerRepository;
 
 import java.time.LocalDate;
-import java.time.YearMonth;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-public class RegisterWithdrawalActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class RegisterWithdrawalActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +40,9 @@ public class RegisterWithdrawalActivity extends AppCompatActivity implements Ada
         setSpinner(itemSpinner, itemRepository.fetchNamesWithVariableCost());
         itemSpinner.setOnItemSelectedListener(this);
     }
-    private void setSpinner(Spinner spinner, List<String> items){
-        if(items != null){
+
+    private void setSpinner(Spinner spinner, List<String> items) {
+        if (items != null) {
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                     this,
                     android.R.layout.simple_spinner_item,
@@ -51,6 +51,7 @@ public class RegisterWithdrawalActivity extends AppCompatActivity implements Ada
             spinner.setAdapter(adapter);
         }
     }
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         Spinner itemSpinner = (Spinner) parent;
@@ -59,7 +60,7 @@ public class RegisterWithdrawalActivity extends AppCompatActivity implements Ada
         //項目毎にデフォルトの金額をセットする
         int cost = itemRepository.fetchCostByName(itemSpinner.getSelectedItem().toString());
         EditText price = findViewById(R.id.price_edittext);
-        if(cost != 0){
+        if (cost != 0) {
             price.setText(String.valueOf(cost));
         }
 
@@ -70,7 +71,7 @@ public class RegisterWithdrawalActivity extends AppCompatActivity implements Ada
         // PayerRepository payerRepository = PayerRepository.getInstance(getApplicationContext());
         // String payerName = payerRepository.fetchName(payerId);
         Spinner payerSpinner = (Spinner) findViewById(R.id.payer_spinner);
-        int index = payerId -1;
+        int index = payerId - 1;
         payerSpinner.setSelection(index);
 
         // 項目毎にデフォルトの支払日をセットする
@@ -79,20 +80,23 @@ public class RegisterWithdrawalActivity extends AppCompatActivity implements Ada
         liquidationDate.setText(paymentDate.toString());
 
     }
+
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
         // 選択が消えた時には何もしない。
     }
 
-    public void inputLiquidationDate(View liquidationDateText){
+    public void inputLiquidationDate(View liquidationDateText) {
         Calendar calendar = Calendar.getInstance();
 
+        DatePickerDialog.OnDateSetListener dateSetListener =
+                (datePicker, year, month, dayOfMonth)
+                        -> ((EditText) liquidationDateText)
+                        .setText(String.format(Locale.JAPAN, "%02d-%02d-%02d", year, month + 1, dayOfMonth));
+
         DatePickerDialog datePickerDialog = new DatePickerDialog(
-                this, new DatePickerDialog.OnDateSetListener() {
-            public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
-                ((EditText)liquidationDateText).setText(String.format(Locale.JAPAN, "%02d-%02d-%02d", year, month + 1, dayOfMonth));
-            }
-        },
+                this,
+                dateSetListener,
                 calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH),
                 calendar.get(Calendar.DAY_OF_MONTH)
@@ -100,7 +104,7 @@ public class RegisterWithdrawalActivity extends AppCompatActivity implements Ada
         datePickerDialog.show();
     }
 
-    public void onClickRegistrationButton(View view){
+    public void onClickRegistrationButton(View view) {
         Validation validation = new EmptyValidation();
         Spinner itemSpinner = (Spinner) findViewById(R.id.item_spinner);
         String itemName = (String) itemSpinner.getSelectedItem();
@@ -111,8 +115,8 @@ public class RegisterWithdrawalActivity extends AppCompatActivity implements Ada
         EditText liquidationDate = (EditText) findViewById(R.id.liquidation_date_edittext);
         validation.check(liquidationDate);
         EditText comment = (EditText) findViewById(R.id.comment_edittext);
-        if(!validation.getFlag()){
-            return ;
+        if (!validation.getFlag()) {
+            return;
         }
 
         Withdrawal withdrawal = new Withdrawal();
@@ -123,9 +127,9 @@ public class RegisterWithdrawalActivity extends AppCompatActivity implements Ada
         withdrawal.comment = comment.getText().toString();
 
         Intent intent = new Intent(this, RegisterResultActivity.class);
-        if(register(withdrawal)){
+        if (register(withdrawal)) {
             intent.putExtra("result", getString(R.string.register_success));
-        }else{
+        } else {
             intent.putExtra("result", getString(R.string.register_failure));
         }
         startActivity(intent);
