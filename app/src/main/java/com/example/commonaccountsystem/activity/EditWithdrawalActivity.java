@@ -200,8 +200,17 @@ public class EditWithdrawalActivity extends AppCompatActivity {
                 .setPositiveButton("確定", (dialog, which) -> {
                     String input = editText.getText().toString();
                     commentTextView.setText(input);
+                    if (input.equals("")) {
+                        float density = getResources().getDisplayMetrics().density;
+                        int paddingTopPx = Math.round(1.5f * density);
+                        int paddingBottomPx = Math.round(0.5f * density);
+                        commentTextView.setPadding(0, paddingTopPx, 0, paddingBottomPx);
+                    } else {
+                        commentTextView.setPadding(0, 0, 0, 0);
+                    }
                 })
                 .setNegativeButton("キャンセル", null)
                 .show();
+
     }
 }
